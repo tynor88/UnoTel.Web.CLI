@@ -1,4 +1,5 @@
 ﻿using HtmlAgilityPack;
+using System;
 using System.Linq;
 
 namespace UnoTel.Web.Cli.Utils
@@ -34,6 +35,23 @@ namespace UnoTel.Web.Cli.Utils
                 .InnerText
                 .Replace("kr.", string.Empty)
                 .Trim();
+        }
+
+        internal static bool SmsHasBeenSent(string html)
+        {
+            HtmlDocument htmlDocument = new HtmlDocument();
+            htmlDocument.LoadHtml(html);
+
+            bool messageWasSent =
+                htmlDocument.DocumentNode
+                .Descendants("span")
+                .Where(d =>
+                    d.Attributes.Contains("class") &&
+                    d.Attributes["class"].Value.Contains("failureMessage"))
+                .Single()
+                .InnerText.Equals("Din websms er sendt", StringComparison.OrdinalIgnoreCase);
+
+            return messageWasSent;
         }
     }
 }

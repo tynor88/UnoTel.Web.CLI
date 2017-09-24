@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
+using System.Web;
+using UnoTel.Web.Cli.Utils;
+using UnoTel.Web.CLI.Utils;
 
 namespace UnoTel.Web.Cli
 {
@@ -25,22 +30,29 @@ namespace UnoTel.Web.Cli
             using (var handler = new HttpClientHandler() { CookieContainer = _cookieProvider.CookieContainer })
             using (var client = new HttpClient(handler) { BaseAddress = _cookieProvider.UnoTelBaseAddress })
             {
-                FormUrlEncodedContent content = CreateSmsForm(receiver, message);
-                var result = await client.PostAsync("/min_side/multi/websms.asp", content);
+                HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, "/min_side/multi/websms.asp")
+                {
+                    Content = new ByteArrayContent(ContentByteArrayUtils.GetContentByteArray(CreateSmsForm(receiver, message)))
+                };
+                httpRequestMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                var result = await client.SendAsync(httpRequestMessage);
                 result.EnsureSuccessStatusCode();
+                bool smsSent = HtlmParserUtils.SmsHasBeenSent(await result.Content.ReadAsStringAsync());
             }
         }
 
-        private static FormUrlEncodedContent CreateSmsForm(int receiver, string message)
+        private static KeyValuePair<string, string>[] CreateSmsForm(int receiver, string message)
         {
-            return new FormUrlEncodedContent(new[]
+            string encodedMessage = HttpUtility.UrlEncode(message, Encoding.GetEncoding("ISO-8859-1"));
+
+            return new[]
             {
                     new KeyValuePair<string, string>("element", "webSms_1_0_0"),
                     new KeyValuePair<string, string>("action", "SendWebSms"),
                     new KeyValuePair<string, string>("receiver", receiver.ToString()),
                     new KeyValuePair<string, string>("tegn_max", "960"),
-                    new KeyValuePair<string, string>("message", message),
-                });
+                    new KeyValuePair<string, string>("message", encodedMessage)
+            };
         }
     }
 }
