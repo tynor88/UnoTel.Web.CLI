@@ -26,7 +26,7 @@ namespace UnoTel.Web.Cli
         {
             string loginContent = await _loginService.Login(userName, password, subscriptionNumber);
             string balance = HtlmParserUtils.GetBalanceFromHtmlString(loginContent);
-            return decimal.Parse(balance, System.Globalization.NumberStyles.AllowDecimalPoint, new CultureInfo("da-DK"));
+            return decimal.Parse(balance, NumberStyles.AllowDecimalPoint, new CultureInfo("da-DK"));
         }
     }
 }

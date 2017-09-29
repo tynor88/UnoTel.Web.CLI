@@ -55,7 +55,6 @@ namespace UnoTel.Web.Cli
             Console.WriteLine($"Execution finished in {sw.ElapsedMilliseconds} ms");
             Console.ReadLine();
 
-            Environment.Exit(result);
             return result;
         }
 
