@@ -1,5 +1,5 @@
 # UnoTel.Web.CLI
-Command Line Interface for [UnoTel.dk](https://www.unotel.dk).
+A Command Line Interface for [UnoTel.dk](https://www.unotel.dk). Easily send a WebSMS or check your subscription's balance.
 
 ### DISCLAIMER
 This repository is not affiliated with, maintained, authorized, endorsed, sponsored or in any way 
