@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace UnoTel.Web.Cli
+namespace UnoTel.Web.Core.Services
 {
     public class CookieProvider
     {

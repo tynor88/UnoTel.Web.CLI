@@ -12,9 +12,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.5.5" />
     <PackageReference Include="Microsoft.Extensions.CommandLineUtils" Version="1.1.1" />
-    <PackageReference Include="SimpleInjector" Version="4.0.11" />
+    <PackageReference Include="SimpleInjector" Version="4.0.12" />
+    <PackageReference Include="SimpleInjector.Packaging" Version="4.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\UnoTel.Web.Core\UnoTel.Web.Core.csproj" />
   </ItemGroup>
 
 </Project>

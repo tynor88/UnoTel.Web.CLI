@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnoTel.Web.CLI", "Source\UnoTel.Web.CLI\UnoTel.Web.CLI.csproj", "{B006C2E1-8BFC-4A7E-A34C-FA58C17638BE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{EC54B045-761F-4A7B-917E-BC3A32F2F25B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnoTel.Web.Api", "UnoTel.Web.Api\UnoTel.Web.Api.csproj", "{E305CB65-81BF-43AC-B266-78400C1779EF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnoTel.Web.Core", "UnoTel.Web.Core\UnoTel.Web.Core.csproj", "{E74452C3-07C2-4026-8260-B6C175D1811C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnoTel.Web.Api.DTO", "UnoTel.Web.Api.DTO\UnoTel.Web.Api.DTO.csproj", "{D2F0696B-5D3E-4DC9-891D-064FD5C43513}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnoTel.Web.AzureFunction", "UnoTel.Web.AzureFunction\UnoTel.Web.AzureFunction.csproj", "{36594C41-8126-4E6A-B53E-48F30BD09AD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +25,32 @@ Global
 		{B006C2E1-8BFC-4A7E-A34C-FA58C17638BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B006C2E1-8BFC-4A7E-A34C-FA58C17638BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B006C2E1-8BFC-4A7E-A34C-FA58C17638BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E305CB65-81BF-43AC-B266-78400C1779EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E305CB65-81BF-43AC-B266-78400C1779EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E305CB65-81BF-43AC-B266-78400C1779EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E305CB65-81BF-43AC-B266-78400C1779EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E74452C3-07C2-4026-8260-B6C175D1811C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E74452C3-07C2-4026-8260-B6C175D1811C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E74452C3-07C2-4026-8260-B6C175D1811C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E74452C3-07C2-4026-8260-B6C175D1811C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2F0696B-5D3E-4DC9-891D-064FD5C43513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2F0696B-5D3E-4DC9-891D-064FD5C43513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2F0696B-5D3E-4DC9-891D-064FD5C43513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2F0696B-5D3E-4DC9-891D-064FD5C43513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36594C41-8126-4E6A-B53E-48F30BD09AD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36594C41-8126-4E6A-B53E-48F30BD09AD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36594C41-8126-4E6A-B53E-48F30BD09AD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36594C41-8126-4E6A-B53E-48F30BD09AD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B006C2E1-8BFC-4A7E-A34C-FA58C17638BE} = {EC54B045-761F-4A7B-917E-BC3A32F2F25B}
+		{E305CB65-81BF-43AC-B266-78400C1779EF} = {EC54B045-761F-4A7B-917E-BC3A32F2F25B}
+		{E74452C3-07C2-4026-8260-B6C175D1811C} = {EC54B045-761F-4A7B-917E-BC3A32F2F25B}
+		{D2F0696B-5D3E-4DC9-891D-064FD5C43513} = {EC54B045-761F-4A7B-917E-BC3A32F2F25B}
+		{36594C41-8126-4E6A-B53E-48F30BD09AD9} = {EC54B045-761F-4A7B-917E-BC3A32F2F25B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72B7E962-D2BB-4FCB-98CB-28CF567CB038}

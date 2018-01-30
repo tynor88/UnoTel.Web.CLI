@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using UnoTel.Web.Cli.IoC;
+using UnoTel.Web.Core.Services;
 
 namespace UnoTel.Web.Cli
 {
@@ -12,7 +13,7 @@ namespace UnoTel.Web.Cli
         {
             Stopwatch sw = Stopwatch.StartNew();
 
-            ExecutionService executionService = Bootstrapper.Container.GetInstance<ExecutionService>();
+            IUnoTelService executionService = Bootstrapper.Container.GetInstance<IUnoTelService>();
 
             var app = new CommandLineApplication();
             app.HelpOption("-? | -h | --help");
@@ -27,7 +28,7 @@ namespace UnoTel.Web.Cli
                 config.OnExecute(async () =>
                 {
                     Console.WriteLine($"Checking balance for subscriptionNumber: {subscriptionNumber.Value()}");
-                    decimal balance = await executionService.GetBalance(userName.Value(), password.Value(), Int32.Parse(subscriptionNumber.Value()));
+                    decimal balance = await executionService.GetBalanceAsync(userName.Value(), password.Value(), Int32.Parse(subscriptionNumber.Value()));
                     Console.WriteLine($"Balance is: {balance}");
                     return 0;
                 });
@@ -45,7 +46,7 @@ namespace UnoTel.Web.Cli
                 config.OnExecute(async () =>
                 {
                     Console.WriteLine($"Sending SMS to recipientNumber: {recipientNumber.Value()}");
-                    await executionService.SendSMS(userName.Value(), password.Value(), Int32.Parse(subscriptionNumber.Value()), Int32.Parse(recipientNumber.Value()), text.Value());
+                    await executionService.SendSMSAsync(userName.Value(), password.Value(), Int32.Parse(subscriptionNumber.Value()), Int32.Parse(recipientNumber.Value()), text.Value());
                     return 0;
                 });
             });

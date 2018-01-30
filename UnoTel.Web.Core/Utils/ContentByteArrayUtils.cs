@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UnoTel.Web.CLI.Utils
+namespace UnoTel.Web.Core.Utils
 {
     internal static class ContentByteArrayUtils
     {

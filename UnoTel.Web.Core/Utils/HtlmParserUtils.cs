@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace UnoTel.Web.Cli.Utils
+namespace UnoTel.Web.Core.Utils
 {
     internal static class HtlmParserUtils
     {

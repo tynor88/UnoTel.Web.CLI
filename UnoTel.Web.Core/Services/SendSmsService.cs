@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using UnoTel.Web.Cli.Utils;
-using UnoTel.Web.CLI.Utils;
+using UnoTel.Web.Core.Utils;
 
-namespace UnoTel.Web.Cli
+namespace UnoTel.Web.Core.Services
 {
     public class SendSmsService
     {

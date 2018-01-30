@@ -14,10 +14,7 @@ namespace UnoTel.Web.Cli.IoC
         {
             Container container = new Container();
 
-            container.Register<ExecutionService>(Lifestyle.Singleton);
-            container.Register<LoginService>(Lifestyle.Singleton);
-            container.Register<SendSmsService>(Lifestyle.Singleton);
-            container.Register<CookieProvider>(Lifestyle.Singleton);
+            container.RegisterPackages(AppDomain.CurrentDomain.GetAssemblies());
 
             container.Verify();
 

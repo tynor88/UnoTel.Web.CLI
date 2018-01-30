@@ -3,9 +3,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using UnoTel.Web.Cli.Utils;
+using UnoTel.Web.Core.Utils;
 
-namespace UnoTel.Web.Cli
+namespace UnoTel.Web.Core.Services
 {
     public class LoginService
     {
@@ -44,12 +44,15 @@ namespace UnoTel.Web.Cli
                 {
                     result.EnsureSuccessStatusCode();
                     subscriptionLink = HtlmParserUtils.GetSubscriptionNumberFromHtmlString(subscriptionNumber, await result.Content.ReadAsStringAsync());
+                    subscriptionLink = WebUtility.HtmlDecode(subscriptionLink);
                 }
             }
 
             using (var handler = new HttpClientHandler() { CookieContainer = _cookieProvider.CookieContainer })
             using (var client = new HttpClient(handler) { BaseAddress = _cookieProvider.UnoTelBaseAddress })
             {
+                handler.AllowAutoRedirect = true;
+
                 var result = await client.GetAsync(subscriptionLink);
                 result.EnsureSuccessStatusCode();
                 loginContent = await result.Content.ReadAsStringAsync();

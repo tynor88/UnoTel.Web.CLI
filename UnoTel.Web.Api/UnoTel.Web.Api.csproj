@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="7.2.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="7.2.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+    <PackageReference Include="SimpleInjector.Integration.AspNetCore.Mvc" Version="4.0.12" />
+    <PackageReference Include="SimpleInjector.Packaging" Version="4.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UnoTel.Web.Api.DTO\UnoTel.Web.Api.DTO.csproj" />
+    <ProjectReference Include="..\UnoTel.Web.Core\UnoTel.Web.Core.csproj" />
+  </ItemGroup>
+
+</Project>
