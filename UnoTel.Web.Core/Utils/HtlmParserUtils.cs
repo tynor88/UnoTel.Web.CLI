@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace UnoTel.Web.Core.Utils
 {
-    internal static class HtlmParserUtils
+    public static class HtlmParserUtils
     {
         internal static string GetSubscriptionNumberFromHtmlString(int subscriptionNumber, string html)
         {
@@ -14,9 +14,11 @@ namespace UnoTel.Web.Core.Utils
             return
                 htmlDocument.DocumentNode
                 .Descendants()
-                .Where(x => x.InnerText == subscriptionNumber.ToString())
-                .FirstOrDefault(x => x.FirstChild.Name == "a")
-                .FirstChild
+                .Where(x => x.InnerText == subscriptionNumber.ToString() && x.Name == "td")
+                .FirstOrDefault()
+                .PreviousSibling
+                .ChildNodes
+                .SingleOrDefault(x => x.Name == "a")
                 .GetAttributeValue("href", string.Empty);
         }
 
@@ -44,10 +46,10 @@ namespace UnoTel.Web.Core.Utils
 
             bool messageWasSent =
                 htmlDocument.DocumentNode
-                .Descendants("span")
+                .Descendants("div")
                 .Where(d =>
                     d.Attributes.Contains("class") &&
-                    d.Attributes["class"].Value.Contains("failureMessage"))
+                    d.Attributes["class"].Value.Contains("alert alert-success"))
                 .Single()
                 .InnerText.Equals("Din websms er sendt", StringComparison.OrdinalIgnoreCase);
 
