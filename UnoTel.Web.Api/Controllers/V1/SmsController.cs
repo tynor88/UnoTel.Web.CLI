@@ -23,11 +23,5 @@ namespace UnoTel.Web.Api.Controllers.V1
 
             return Ok();
         }
-
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            return Ok("yey");
-        }
     }
 }
