@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace UnoTel.Web.Core.Utils
 {
-    public static class HtlmParserUtils
+    internal static class HtlmParserUtils
     {
         internal static string GetSubscriptionNumberFromHtmlString(int subscriptionNumber, string html)
         {
