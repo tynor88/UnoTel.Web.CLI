@@ -70,7 +70,7 @@ namespace UnoTel.Web.Core.Services
         {
             return new FormUrlEncodedContent(new[]
             {
-                    new KeyValuePair<string, string>("element", "Com_Login_1_0_0"),
+                    new KeyValuePair<string, string>("element", "Com_Login_2_0_0"),
                     new KeyValuePair<string, string>("action", "login"),
                     new KeyValuePair<string, string>("com_login_username", number),
                     new KeyValuePair<string, string>("com_login_password", password),
